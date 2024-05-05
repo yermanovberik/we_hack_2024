@@ -1,0 +1,47 @@
+
+spring:
+  application:
+    name: hackaton
+  config:
+    import: optional:file:.env[.properties]
+  jackson:
+    time-zone: Asia/Almaty
+  jwt:
+    secret-key: 2B4B6250655368566D5971337336763979244226452948404D635166546A576E
+    expiration_time_access: 3600000
+    expiration_time_refresh: 3600000000
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  datasource:
+    url: jdbc:postgresql://viaduct.proxy.rlwy.net:59733/railway
+    username: postgres
+    password: ApMBTKJuIMfSYIUuYdHZTspZSWuouuTB
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      id:
+        increment: 1
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        globally_quoted_identifiers: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+rabbitmq:
+  queue:
+    name: javaquides
+    json:
+      name: javaquides_json
+  exchange:
+    name: javaquides_exchange
+  routing:
+    key: javaquides_routing_key
+    json:
+      key: javaquides_routing_json_key
+
